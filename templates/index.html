@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Sohbet geçmişi">
+        <div class="brand">
+          <div>
+            <p class="eyebrow">çevrimiçi</p>
+            <h1>Asistan</h1>
+          </div>
+          <button class="new-chat-button" id="newChatButton" type="button">Yeni sohbet</button>
+        </div>
+
+        <nav class="conversation-list" id="conversationList" aria-label="Geçmiş sohbetler"></nav>
+      </aside>
+
+      <section class="chat-panel" aria-label="Sohbet">
+        <header class="chat-header">
+          <div>
+            <p class="model-label">llama-3.3-70b</p>
+            <h2 id="activeTitle">Yeni sohbet</h2>
+          </div>
+        </header>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+
+        <form class="composer" id="chatForm">
+          <label class="sr-only" for="messageInput">Mesajın</label>
+          <textarea id="messageInput" rows="1" placeholder="Mesajını yaz..." autocomplete="off"></textarea>
+          <button id="sendButton" type="submit">Gönder</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
