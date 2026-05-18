@@ -46,7 +46,7 @@ function setLoading(nextValue) {
 
 async function requestJson(url, options = {}) {
   const response = await fetch(url, options);
-  const data = await response.json();
+  const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     throw new Error(data.error || "Bir hata oluştu.");
@@ -142,11 +142,15 @@ async function deleteConversation(conversationId) {
     return;
   }
 
+  const deletedCurrentConversation = conversationId === currentConversationId;
   const data = await requestJson(`/api/conversations/${conversationId}`, {
     method: "DELETE",
   });
+
   renderConversationList(data.conversations);
-  await loadConversation(data.active_id);
+  if (deletedCurrentConversation) {
+    await loadConversation(data.active_id);
+  }
 }
 
 async function sendMessage(message) {
@@ -154,7 +158,7 @@ async function sendMessage(message) {
   const loadingMessage = addMessage("Bot", "Yazıyor...", "bot");
 
   try {
-    const data = await requestJson("/chat", {
+    const data = await requestJson("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

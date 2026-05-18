@@ -1,11 +1,114 @@
 {
   "conversations": [
     {
-      "id": "67761e1d361b4d9383f8a4d53b61988e",
+      "id": "05924c0ebfea499b83ad76e9b2c1a5f2",
+      "title": "selam",
+      "messages": [
+        {
+          "role": "user",
+          "content": "selam"
+        },
+        {
+          "role": "assistant",
+          "content": "Selam, nasıl yardımcı olabilirim?"
+        },
+        {
+          "role": "user",
+          "content": "nasılsın"
+        },
+        {
+          "role": "assistant",
+          "content": "İyiyim, teşekkür ederim. Sana nasıl yardımcı olabilirim?"
+        }
+      ],
+      "created_at": "2026-05-18T08:51:42.893321+00:00",
+      "updated_at": "2026-05-18T08:51:46.929260+00:00"
+    },
+    {
+      "id": "509403c8d12f4127a6b7f74d42a7a9fd",
+      "title": "bir şey soracağım",
+      "messages": [
+        {
+          "role": "user",
+          "content": "bir şey soracağım"
+        },
+        {
+          "role": "assistant",
+          "content": "Sorabilirsin, bekliyorum."
+        }
+      ],
+      "created_at": "2026-05-18T08:35:39.330808+00:00",
+      "updated_at": "2026-05-18T08:35:48.270647+00:00"
+    },
+    {
+      "id": "ef679896581b44dda5e93490c8c5ae4c",
+      "title": "import os from flask import Flask from rou...",
+      "messages": [
+        {
+          "role": "user",
+          "content": "import os\n\nfrom flask import Flask\n\nfrom routes import bp\n\napp = Flask(__name__)\napp.register_blueprint(bp)\n\n\ndef is_debug_enabled():\n    return os.getenv(\"FLASK_DEBUG\", \"\").lower() in {\"1\", \"true\", \"yes\", \"on\"}\n\n\nif __name__ == \"__main__\":\n    app.run(debug=is_debug_enabled())\nban bu kdu acıkla"
+        },
+        {
+          "role": "assistant",
+          "content": "Bu kod, bir Flask uygulamasını başlatmak için kullanılan bir betiği içeriyor. İşte kodun açıklaması:\n\n1. `import os` ve `from flask import Flask`: Bu satırlar, `os` ve `Flask` modüllerini içe aktarıyor. `os` modülü, işletim sistemiyle ilgili işlemler için kullanılırken, `Flask` modülü, web uygulamaları geliştirmek için kullanılan bir framework.\n\n2. `from routes import bp`: Bu satır, `routes` modülünden `bp` adlı bir Blueprint'ı içe aktarıyor. Blueprint, Flask'ta bir uygulamanın belirli bir bölümünü tanımlamak için kullanılan bir yapıdır.\n\n3. `app = Flask(__name__)`: Bu satır, bir Flask uygulaması oluşturuyor. `__name__` parametresi, uygulamanın adını belirtmek için kullanılır.\n\n4. `app.register_blueprint(bp)`: Bu satır, daha önce içe aktarılan `bp` Blueprint'ını uygulamaya kaydediyor.\n\n5. `def is_debug_enabled():`: Bu fonksiyon, `FLASK_DEBUG` adlı bir çevre değişkeninin değerini kontrol ediyor. Bu değişken, Flask uygulamasının hata ayıklama modunda çalışıp çalışmadığını belirler.\n\n6. `return os.getenv(\"FLASK_DEBUG\", \"\").lower() in {\"1\", \"true\", \"yes\", \"on\"}`: Bu satır, `FLASK_DEBUG` değişkeninin değerini alıyor ve bu değerin `\"1\"`, `\"true\"`, `\"yes\"` veya `\"on\"` ile eşleşip eşleşmediğini kontrol ediyor. Eğer değer bu değerlerden birine eşitse, fonksiyon `True` döndürür, aksi takdirde `False` döndürür.\n\n7. `if __name__ == \"__main__\":`: Bu satır, betiğin doğrudan çalıştırıldığını kontrol ediyor. Eğer betik doğrudan çalıştırıldıysa, aşağıdaki kod çalıştırılır.\n\n8. `app.run(debug=is_debug_enabled())`: Bu satır, Flask uygulamasını başlatıyor. `debug` parametresi, `is_debug_enabled()` fonksiyonunun döndürdüğü değer olarak ayarlanıyor. Eğer `is_debug_enabled()` fonksiyonu `True` döndürürse, uygulamayı hata ayıklama modunda çalıştırır."
+        }
+      ],
+      "created_at": "2026-05-18T07:44:49.236082+00:00",
+      "updated_at": "2026-05-18T07:44:56.903152+00:00"
+    },
+    {
+      "id": "257444aecb434e358fc802ffa9cb3970",
       "title": "Yeni sohbet",
       "messages": [],
-      "created_at": "2026-05-15T13:13:12.401734+00:00",
-      "updated_at": "2026-05-15T13:13:12.401734+00:00"
+      "created_at": "2026-05-18T07:44:49.083550+00:00",
+      "updated_at": "2026-05-18T07:44:49.083550+00:00"
+    },
+    {
+      "id": "d14c53ff5a0245b68c6a16598b868cf4",
+      "title": "programlama dilleri hakkında bilgi verir m...",
+      "messages": [
+        {
+          "role": "user",
+          "content": "programlama dilleri hakkında bilgi verir misin"
+        },
+        {
+          "role": "assistant",
+          "content": "Tabii ki! Programlama dilleri, bilgisayarlar tarafından anlaşılabilen ve belirli görevleri gerçekleştirmek için kullanılan dillerdir. İşte bazı popüler programlama dilleri:\n\n1. **Python**: Genellikle web geliştirme, veri analizi ve yapay zeka uygulamalarında kullanılır.\n2. **Java**: Android uygulamaları, web geliştirme ve büyük ölçekli sistemlerde kullanılır.\n3. **JavaScript**: Web geliştirme, özellikle frontend (kullanıcı arayüzü) geliştirme için kullanılır.\n4. **C++**: Sistem programlama, oyun geliştirme ve yüksek performanslı uygulamalarda kullanılır.\n5. **C#**: Windows uygulamaları, web geliştirme ve oyun geliştirme için kullanılır.\n6. **Ruby**: Web geliştirme, özellikle Ruby on Rails framework'ü ile kullanılır.\n7. **Swift**: iOS ve macOS uygulamaları geliştirme için kullanılır.\n8. **PHP**: Web geliştirme, özellikle sunucu tarafı geliştirme için kullanılır.\n9. **Go**: Sistem programlama, ağ programlama ve bulut bilişim uygulamalarında kullanılır.\n10. **R**: Veri analizi, istatistik ve veri görselleştirme için kullanılır.\n\nBu programlama dilleri, farklı amaçlar ve platformlar için kullanılır. Hangi dilin öğrenilmesi gerektiği, kişinin ilgi alanlarına ve hedeflerine bağlıdır."
+        },
+        {
+          "role": "user",
+          "content": "baska"
+        },
+        {
+          "role": "assistant",
+          "content": "Diğer bazı programlama dilleri:\n\n1. **Kotlin**: Android uygulamaları geliştirme için kullanılır.\n2. **TypeScript**: JavaScript'in tür sistemine sahip bir sürümüdür, web geliştirme için kullanılır.\n3. **Scala**: JVM (Java Sanal Makinesi) üzerinde çalışan bir dil, büyük veri işleme ve dağıtık sistemlerde kullanılır.\n4. **Haskell**: Fonksiyonel programlama dili, akademik ve araştırma ortamlarında kullanılır.\n5. **Rust**: Sistem programlama, güvenlik odaklı uygulamalar ve yüksek performanslı sistemlerde kullanılır.\n6. **Lua**: Oyun geliştirme, özellikle scriptleme için kullanılır.\n7. **Perl**: Sistem yönetimi, ağ programlama ve veri işleme için kullanılır.\n8. **MATLAB**: Matematiksel hesaplamalar, veri analizi ve görselleştirme için kullanılır.\n9. **SQL**: Veritabanı yönetimi ve sorgulama için kullanılır.\n10. **Assembly**: Makine dili, düşük seviyeli programlama için kullanılır.\n\nBu diller, farklı alanlarda ve platformlarda kullanılır. Her bir dilin kendi avantajları ve dezavantajları vardır."
+        }
+      ],
+      "created_at": "2026-05-18T07:00:05.428552+00:00",
+      "updated_at": "2026-05-18T07:09:55.454905+00:00"
+    },
+    {
+      "id": "ec88836ccb5542bd87adb011e32b2cbc",
+      "title": "Yeni sohbet",
+      "messages": [],
+      "created_at": "2026-05-18T07:02:05.747921+00:00",
+      "updated_at": "2026-05-18T07:02:05.747921+00:00"
+    },
+    {
+      "id": "23f8bc77f1064370bf0782f80b4a65d7",
+      "title": "selam",
+      "messages": [
+        {
+          "role": "user",
+          "content": "selam"
+        },
+        {
+          "role": "assistant",
+          "content": "Selam, nasıl yardımcı olabilirim?"
+        }
+      ],
+      "created_at": "2026-05-18T06:55:50.608585+00:00",
+      "updated_at": "2026-05-18T06:59:59.682759+00:00"
     }
   ]
 }

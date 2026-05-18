@@ -1,9 +1,7 @@
 # Chatbot Project
 
-This project is a modern AI chatbot application built with Flask.  
-Users can create conversations, view chat history, and interact with an LLM model powered by the Groq API.
+This project is a modern AI chatbot application built with Flask. Users can create conversations, view chat history, and interact with an LLM model powered by the Groq API.
 
----
 ## Screenshot
 
 ![Chatbot UI](images/chatbot.png)
@@ -19,8 +17,6 @@ Users can create conversations, view chat history, and interact with an LLM mode
 - Groq API integration
 - AI assistant with natural responses
 
----
-
 ## Technologies Used
 
 - Python
@@ -29,53 +25,45 @@ Users can create conversations, view chat history, and interact with an LLM mode
 - CSS
 - JavaScript
 - Groq API
-- dotenv
-
----
+- python-dotenv
+- httpx
 
 ## Project Structure
 
-```bash
+```text
 chatbot/
-│
-├── app.py
-├── chatbot.py
-├── routes.py
-├── chat_history.json
-├── .env
-│
-├── templates/
-│   └── index.html
-│
-├── static/
-│   ├── style.css
-│   └── script.js
+|-- app.py                     -> Starts the Flask application
+|-- backend/
+|   |-- config.py              -> Stores constant settings
+|   |-- routes.py              -> Page and API routes
+|   |-- services/
+|   |   |-- chat_service.py    -> Conversation logic
+|   |   `-- chatbot.py         -> AI/Groq operations
+|   `-- storage/
+|       `-- json_storage.py    -> File reading and saving
+|-- templates/                 -> HTML files
+|-- static/                    -> CSS and JavaScript files
+|-- images/                    -> Images
+|-- chat_history.json          -> Conversation history
+|-- requirements.txt           -> Required Python packages
+`-- README.md                  -> Project documentation
 ```
 
----
-
 ## Installation
-
-### 1. Clone the project
 
 ```bash
 git clone <repo-link>
 cd chatbot
+pip install -r requirements.txt
 ```
 
-### 2. Install required packages
-
-```bash
-pip install flask groq python-dotenv httpx
-```
-
-### 3. Create a `.env` file
+Create a `.env` file:
 
 ```env
 GROQ_API_KEY=your_api_key
 ```
 
----
+You can use `.env.example` as a template. Do not write your real API key in `.env.example`.
 
 ## Run the Project
 
@@ -85,77 +73,49 @@ python app.py
 
 After starting the application, open:
 
-```bash
+```text
 http://127.0.0.1:5000
 ```
 
----
+Debug mode is disabled by default. To enable it during development:
+
+```powershell
+$env:FLASK_DEBUG="1"
+python app.py
+```
 
 ## Model Used
 
-The following LLM model is used in this project:
-
-```python
+```text
 llama-3.3-70b-versatile
 ```
 
----
+## Architecture
 
-## System Prompt
+The user sends a message from the web interface. The Flask backend receives the message, sends it to the Groq API, gets the LLM response, saves the conversation history, and returns the response to the frontend.
 
-The chatbot is designed to:
-
-- Respond naturally
-- Give short and understandable answers
-- Avoid giving misleading information
-- Provide practical solutions when possible
-
----
+```text
+User -> Frontend -> Flask Backend -> Groq API -> LLM -> Response
+```
 
 ## API Endpoints
 
-### Get Conversations
-
 ```http
 GET /api/conversations
-```
-
-### Create Conversation
-
-```http
 POST /api/conversations
-```
-
-### Get Conversation
-
-```http
 GET /api/conversations/<conversation_id>
-```
-
-### Delete Conversation
-
-```http
 DELETE /api/conversations/<conversation_id>
-```
-
-### Send Message
-
-```http
 POST /api/chat
+POST /reset
 ```
 
----
+## Limitations
 
-## Interface Features
-
-- Conversation history on the left sidebar
-- Chat area on the right side
-- Responsive design
-- Clean and modern UI
-
----
+- The model is not trained from scratch.
+- A ready-made LLM API is used.
+- Conversation history is stored in a JSON file.
+- There is no user authentication system.
 
 ## Purpose
 
-This project was developed to understand the working principles of Large Language Models (LLMs) and transformer-based chatbot systems.  
-It also aims to provide practical experience with Flask backend development and API integration.
+This project was developed to understand the working principles of Large Language Models (LLMs) and transformer-based chatbot systems. It also provides practical experience with Flask backend development, API integration, and chatbot application architecture.
